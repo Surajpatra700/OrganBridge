@@ -2,12 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
+import 'package:organ_bridge_project/homepage/home_page.dart';
+import 'package:organ_bridge_project/screens/add_info.dart';
 import 'package:organ_bridge_project/screens/quote_page.dart';
 import 'package:organ_bridge_project/screens/signup_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePageDrawer extends StatelessWidget {
   final auth = FirebaseAuth.instance;
+  final url = Uri.parse("https://sotto.mp.gov.in/");
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class HomePageDrawer extends StatelessWidget {
               ),
               margin: EdgeInsets.zero,
               //auth.currentUser!.email!.text.bold.xl2.make()
-              accountName: auth.currentUser!.email!.text.make(),
+              accountName: auth.currentUser!.email!.text.bold.xl2.make(),
               accountEmail: "9767812672".text.make(),
               currentAccountPicture: const CircleAvatar(
                 backgroundImage: NetworkImage(imageUrl),
@@ -44,16 +48,31 @@ class HomePageDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: "Details".text.make(),
-            subtitle: "Subdetails".text.make(),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => HomePage())));
+            },
+            leading: Icon(Icons.home),
+            title: Text("Home",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+            //subtitle: "Subdetails".text.make(),
           ),
           ListTile(
-            title: "Details".text.make(),
-            subtitle: "Subdetails".text.make(),
+            onTap: () async{
+              await launchUrl(url);
+            },
+            leading: Icon(Icons.language),
+            title: Text("website",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
           ),
           ListTile(
-            title: "Details".text.make(),
-            subtitle: "Subdetails".text.make(),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => About())));
+            },
+            leading: Icon(Icons.info),
+            title: Text("About us",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
           ),
           const SizedBox(
             height: 24,
@@ -78,17 +97,18 @@ class HomePageDrawer extends StatelessWidget {
             },
             tileColor: Colors.indigo.shade50,
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-                colors: [
-                Colors.indigo.shade100,
-                Color.fromARGB(255, 100, 135, 164),
-              ])
-            ),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                    colors: [
+                  Colors.indigo.shade100,
+                  Color.fromARGB(255, 100, 135, 164),
+                ])),
             child: ListTile(
               leading: Icon(Icons.thumb_up_rounded),
               title: Text("Quotes"),
