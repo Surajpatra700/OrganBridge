@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
+import 'package:organ_bridge_project/screens/quote_page.dart';
 import 'package:organ_bridge_project/screens/signup_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -35,7 +36,7 @@ class HomePageDrawer extends StatelessWidget {
               ),
               margin: EdgeInsets.zero,
               //auth.currentUser!.email!.text.bold.xl2.make()
-              accountName: Text("Suraj Patra"),
+              accountName: auth.currentUser!.email!.text.make(),
               accountEmail: "9767812672".text.make(),
               currentAccountPicture: const CircleAvatar(
                 backgroundImage: NetworkImage(imageUrl),
@@ -93,8 +94,8 @@ class HomePageDrawer extends StatelessWidget {
               title: Text("Quotes"),
               subtitle: Text("There will be a sunshine"),
               onTap: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: ((context) => QuotesScreen())));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => QuotesScreen())));
               },
             ),
           ),

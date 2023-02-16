@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:organ_bridge_project/actions/round_button.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
+import 'package:organ_bridge_project/actions/utils_2.dart';
+import 'package:organ_bridge_project/screens/requestor_list_page.dart';
 //import 'package:organ_bridge/actions/utils.dart';
 //import 'package:organ_bridge/actions/round_button.dart';
 //import 'package:organ_bridge/screens/requestor_list_page.dart';
@@ -562,20 +564,6 @@ class _DonorFormPageState extends State<DonorFormPage> {
                         ),
                       ),
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     labelText: "Present Time",
-                    //     labelStyle: TextStyle(color: Colors.white),
-                    //     hintText: "set present time",
-                    //     hintStyle: TextStyle(color: Colors.white),
-                    //     enabledBorder: OutlineInputBorder(
-                    //         borderRadius: BorderRadius.circular(10.0),
-                    //         borderSide: BorderSide(color: Colors.deepPurple)),
-                    //     border: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(10.0),
-                    //     ),
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 30,
                     ),
@@ -583,46 +571,43 @@ class _DonorFormPageState extends State<DonorFormPage> {
                       title: "submit",
                       loading: loading,
                       onTap: () {
-                        // //final time = DateTime.now();
-                        // setState(() {
-                        //   loading = true;
-                        // });
-                        // final id =
-                        //     DateTime.now().microsecondsSinceEpoch.toString();
-                        // if (_myFormKey.currentState!.validate()) {
-                        //   firebaseRef.child(id).set({
-                        //     "id": id,
-                        //     "name": nameController.text.toString(),
-                        //     "phoneNo": phoneController.text.toString(),
-                        //     "bloodGroup": bloodGroupController.text.toString(),
-                        //     "organSpecified": organController.text.toString(),
-                        //     "Preference": preferenceController.text.toString(),
-                        //     "hospital": hospitalController.text.toString(),
-                        //     "dob": dobController.text.toString(),
-                        //     "time": timeController.text.toString(),
-                        //   }).then((value) {
-                        //     // setState(() {
-                        //     //   loading = false;
-                        //     // });
-                        //     Utils().toastMessage("Succesfully submitted");
-                        //     //Navigator.push(
-                        //       //  context,
-                        //         //MaterialPageRoute(
-                        //           //  builder: ((context) =>
-                        //             //    RequestorListPage())));
-                        //     setState(() {
-                        //       loading = false;
-                        //     });
-                        //   }).onError((error, stackTrace) {
-                        //     // setState(() {
-                        //     //   loading = false;
-                        //     // });
-                        //     Utils().toastMessage(error.toString());
-                        //     setState(() {
-                        //       loading = false;
-                        //     });
-                        //   });
-                        // }
+                        //final time = DateTime.now();
+                        setState(() {
+                          loading = true;
+                        });
+                        final id =
+                            DateTime.now().microsecondsSinceEpoch.toString();
+                        if (_myFormKey.currentState!.validate()) {
+                          firebaseRef.child(id).set({
+                            "id": id,
+                            "name": nameController.text.toString(),
+                            "phoneNo": phoneController.text.toString(),
+                            "bloodGroup": bloodGroupController.text.toString(),
+                            "organSpecified": organController.text.toString(),
+                            "Preference": preferenceController.text.toString(),
+                            "hospital": hospitalController.text.toString(),
+                            "dob": dobController.text.toString(),
+                            "time": timeController.text.toString(),
+                          }).then((value) {
+                            setState(() {
+                              loading = false;
+                            });
+                            Utilss().toastMessage("Succesfully submitted");
+                            Navigator.push(
+                               context,
+                                MaterialPageRoute(
+                                   builder: ((context) =>
+                                       RequestorListPage())));
+                            setState(() {
+                              loading = false;
+                            });
+                          }).onError((error, stackTrace) {
+                            setState(() {
+                              loading = false;
+                            });
+                            Utils().toastMessage(error.toString());
+                          });
+                        }
                       },
                       //color: Colors.deepPurple
                     ),
@@ -634,18 +619,6 @@ class _DonorFormPageState extends State<DonorFormPage> {
               )),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Colors.deepPurple,
-      //   onPressed: () {
-      //     _myFormKey.currentState!.validate();
-      //   },
-      //   child: Icon(
-      //     Icons.done,
-      //     color: Colors.white,
-      //     //size: 5,
-      //     //weight: 4,
-      //   ),
-      // ),
     );
   }
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:organ_bridge_project/screens/donation_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 //import 'number_input_form.dart';
@@ -30,7 +31,7 @@ class DonationCard extends StatelessWidget {
                   width: 200,
                   child: TextButton(
                       onPressed: () {
-                        //Navigator.push(context, MaterialPageRoute(builder: ((context) => DonationScreen())));
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => DonationScreen())));
                       },
                       child: Center(
                           child: Text(

@@ -39,7 +39,6 @@ class _RequestorListPageState extends State<RequestorListPage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  //  Color.fromARGB(255, 163, 162, 162),
                   Colors.indigo.shade200,
                   Color.fromARGB(255, 42, 22, 77),
                 ]),

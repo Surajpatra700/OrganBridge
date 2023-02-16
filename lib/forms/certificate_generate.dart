@@ -5,6 +5,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/actions/round_button.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
+import 'package:organ_bridge_project/actions/utils_2.dart';
+import 'package:organ_bridge_project/screens/certificate.dart';
 
 class CertificateGenerate extends StatefulWidget {
   const CertificateGenerate({super.key});
@@ -401,12 +403,12 @@ class _CertificateGenerateState extends State<CertificateGenerate> {
                               setState(() {
                                 loading = false;
                               });
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: ((context) =>
-                              //             CertificatePage())));
-                              Utils().toastMessage(
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          CertificatePage())));
+                              Utilss().toastMessage(
                                   "Thank You For your Valuable Support");
                             }).onError((error, stackTrace) {
                               setState(() {

@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:organ_bridge_project/actions/forgot_password.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
 import 'package:organ_bridge_project/actions/utils_2.dart';
 import 'package:organ_bridge_project/screens/signup_screen.dart';
@@ -145,31 +146,6 @@ class _RequestorLoginScreenState extends State<RequestorLoginScreen> {
                         title: "Login",
                         onTap: () {
                           login();
-                          // if (_formKey.currentState!.validate()) {
-                          //   setState(() {
-                          //     loading = true;
-                          //   });
-                          //   auth
-                          //       .signInWithEmailAndPassword(
-                          //     email: emailController.text.toString(),
-                          //     password: passwordController.text.toString(),
-                          //   )
-                          //       .then((value) {
-                          //         setState(() {
-                          //     loading = false;
-                          //   });
-                          //     Navigator.push(
-                          //         context,
-                          //         MaterialPageRoute(
-                          //             builder: (content) => PostScreen()));
-                          //     Utils().toastMessage("Succesfully Login");
-                          //   }).onError((error, stackTrace) {
-                          //     Utils().toastMessage(error.toString());
-                          //     setState(() {
-                          //     loading = false;
-                          //   });
-                          //   });
-                          // }
                         }),
                   ),
                   SizedBox(
@@ -181,10 +157,10 @@ class _RequestorLoginScreenState extends State<RequestorLoginScreen> {
                       alignment: Alignment.bottomLeft,
                       child: TextButton(
                           onPressed: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => ForgetPassword()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ForgetPassword()));
                           },
                           child: Text(
                             "forgot password?",

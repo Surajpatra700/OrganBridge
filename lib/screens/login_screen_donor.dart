@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:organ_bridge_project/actions/forgot_password.dart';
 import 'package:organ_bridge_project/forms/donor_formpage.dart';
 import 'package:organ_bridge_project/screens/signup_screen.dart';
 
@@ -157,10 +158,10 @@ class _DonorLoginScreenState extends State<DonorLoginScreen> {
                       alignment: Alignment.bottomLeft,
                       child: TextButton(
                           onPressed: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => ForgetPassword()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => ForgetPassword())));
                           },
                           child: Text(
                             "forgot password?",
