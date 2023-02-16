@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508097844826",
+    "project_id": "organbridge-10bb0",
+    "storage_bucket": "organbridge-10bb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508097844826:android:d52fa17df3ff42ba15aa63",
+        "android_client_info": {
+          "package_name": "com.example.organ_bridge_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508097844826-dhkm0fu69iuarch2hgktb0svcp3oot0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHTWY_a5pMECMlI6ersTbMADZXO21vzBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508097844826-dhkm0fu69iuarch2hgktb0svcp3oot0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
