@@ -583,46 +583,46 @@ class _DonorFormPageState extends State<DonorFormPage> {
                       title: "submit",
                       loading: loading,
                       onTap: () {
-                        //final time = DateTime.now();
-                        setState(() {
-                          loading = true;
-                        });
-                        final id =
-                            DateTime.now().microsecondsSinceEpoch.toString();
-                        if (_myFormKey.currentState!.validate()) {
-                          firebaseRef.child(id).set({
-                            "id": id,
-                            "name": nameController.text.toString(),
-                            "phoneNo": phoneController.text.toString(),
-                            "bloodGroup": bloodGroupController.text.toString(),
-                            "organSpecified": organController.text.toString(),
-                            "Preference": preferenceController.text.toString(),
-                            "hospital": hospitalController.text.toString(),
-                            "dob": dobController.text.toString(),
-                            "time": timeController.text.toString(),
-                          }).then((value) {
-                            // setState(() {
-                            //   loading = false;
-                            // });
-                            Utils().toastMessage("Succesfully submitted");
-                            //Navigator.push(
-                              //  context,
-                                //MaterialPageRoute(
-                                  //  builder: ((context) =>
-                                    //    RequestorListPage())));
-                            setState(() {
-                              loading = false;
-                            });
-                          }).onError((error, stackTrace) {
-                            // setState(() {
-                            //   loading = false;
-                            // });
-                            Utils().toastMessage(error.toString());
-                            setState(() {
-                              loading = false;
-                            });
-                          });
-                        }
+                        // //final time = DateTime.now();
+                        // setState(() {
+                        //   loading = true;
+                        // });
+                        // final id =
+                        //     DateTime.now().microsecondsSinceEpoch.toString();
+                        // if (_myFormKey.currentState!.validate()) {
+                        //   firebaseRef.child(id).set({
+                        //     "id": id,
+                        //     "name": nameController.text.toString(),
+                        //     "phoneNo": phoneController.text.toString(),
+                        //     "bloodGroup": bloodGroupController.text.toString(),
+                        //     "organSpecified": organController.text.toString(),
+                        //     "Preference": preferenceController.text.toString(),
+                        //     "hospital": hospitalController.text.toString(),
+                        //     "dob": dobController.text.toString(),
+                        //     "time": timeController.text.toString(),
+                        //   }).then((value) {
+                        //     // setState(() {
+                        //     //   loading = false;
+                        //     // });
+                        //     Utils().toastMessage("Succesfully submitted");
+                        //     //Navigator.push(
+                        //       //  context,
+                        //         //MaterialPageRoute(
+                        //           //  builder: ((context) =>
+                        //             //    RequestorListPage())));
+                        //     setState(() {
+                        //       loading = false;
+                        //     });
+                        //   }).onError((error, stackTrace) {
+                        //     // setState(() {
+                        //     //   loading = false;
+                        //     // });
+                        //     Utils().toastMessage(error.toString());
+                        //     setState(() {
+                        //       loading = false;
+                        //     });
+                        //   });
+                        // }
                       },
                       //color: Colors.deepPurple
                     ),
