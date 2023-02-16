@@ -2,9 +2,12 @@
 // ignore_for_file: prefer_const_constructors
 
 
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:organ_bridge_project/actions/round_button.dart';
 import 'package:organ_bridge_project/actions/utils.dart';
 import 'package:organ_bridge_project/actions/utils_2.dart';
@@ -30,6 +33,20 @@ class _RequestorFormPageState extends State<RequestorFormPage> {
   final dobController = TextEditingController();
   final timeController = TextEditingController();
   bool loading = false;
+  File? _image;
+  final picker = ImagePicker();
+
+  Future getImageFromGallery() async {
+    final pickedFile =
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print("No image picked");
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -574,6 +591,37 @@ class _RequestorFormPageState extends State<RequestorFormPage> {
                     SizedBox(
                       height: 30,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                            "HLA report",
+                            style: TextStyle(color: Colors.white70,fontSize: 15),
+                          ),
+                        Text(
+                          "*",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        getImageFromGallery();
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white70),
+                        ),
+                        child: _image != null? Image.file(_image!.absolute) : Icon(Icons.image,color: Colors.white70,),
+                      ),
+                    ),
+                    SizedBox(height: 30),
+
                     RoundButton(
                         loading: loading,
                         title: "submit",
