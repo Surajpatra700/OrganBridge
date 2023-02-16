@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'OrganBridge',
       theme: ThemeData(
-        //appBarTheme: ,
         primarySwatch: Colors.indigo,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),

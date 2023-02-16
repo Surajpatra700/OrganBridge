@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
-
-//import 'dart:html';
-
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:organ_bridge_project/forms/certificate_generate.dart';
-import 'package:organ_bridge_project/homepage/home_page.dart';
+
+import '../forms/certificate_generate.dart';
+import '../homepage/home_page.dart';
 
 class RequestorListPage extends StatefulWidget {
   const RequestorListPage({super.key});

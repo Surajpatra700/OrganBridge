@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -36,17 +34,11 @@ class _DonorListPageState extends State<DonorListPage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  //  Color.fromARGB(255, 163, 162, 162),
                   Colors.indigo.shade200,
                   Color.fromARGB(255, 42, 22, 77),
                 ]),
-            // image: DecorationImage(
-            //     image: AssetImage("assets/images/photo.jpg"),
-            //     fit: BoxFit.fill,
-            //     opacity: 60),
           ),
           child: Column(children: [
-            //SizedBox(height: 80),
             Row(children: [
               const SizedBox(height: 80),
               Padding(
@@ -65,15 +57,18 @@ class _DonorListPageState extends State<DonorListPage> {
               ),
             ]),
             const Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 15.0),
-                  child: Text("Donor's List",
-                      style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black)),
-                )),
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Text(
+                  "Donor's List",
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ),
+            ),
             const SizedBox(height: 25),
             Expanded(
               child: FirebaseAnimatedList(
@@ -85,7 +80,6 @@ class _DonorListPageState extends State<DonorListPage> {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Card(
-                        //borderOnForeground: false,
                         color: Colors.grey.shade200,
                         elevation: 2,
                         child: ListTile(
@@ -97,7 +91,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                     child: Container(
                                       height: 300,
                                       width: 250,
-                                      //color: Colors.grey.shade300,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.transparent,
@@ -171,7 +164,10 @@ class _DonorListPageState extends State<DonorListPage> {
                                                   color: Colors.white),
                                               SizedBox(width: 5),
                                               Text(
-                                                  "${snapshot.child("phoneNo").value.toString()}",
+                                                  snapshot
+                                                      .child("phoneNo")
+                                                      .value
+                                                      .toString(),
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 16,
@@ -180,25 +176,24 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              snapshot
+                                                  .child("time")
+                                                  .value
+                                                  .toString(),
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
                                         ],
                                       ),
                                     ),
                                   );
                                 });
                           },
-                          //tileColor: Color.fromARGB(255, 249, 198, 215),
                           leading: Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: Container(
@@ -212,8 +207,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://images.picxy.com/cache/2020/10/28/1bd593f80e947673a9212108efd6e202.jpg"),
                           ),
                           title: Center(
                             child: Text(snapshot
@@ -252,7 +245,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                     child: Container(
                                       height: 300,
                                       width: 250,
-                                      //color: Colors.grey.shade300,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.transparent,
@@ -335,18 +327,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              "${snapshot.child("time").value.toString()}",
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -361,29 +351,30 @@ class _DonorListPageState extends State<DonorListPage> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
-                                        "http://med.stanford.edu/content/dam/sm-news/images/2014/06/kidney-stock.jpg"),
+                                      "http://med.stanford.edu/content/dam/sm-news/images/2014/06/kidney-stock.jpg",
+                                    ),
                                     fit: BoxFit.cover),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "http://med.stanford.edu/content/dam/sm-news/images/2014/06/kidney-stock.jpg"),
                           ),
                           title: Center(
-                            child: Text(snapshot
-                                .child('organSpecified')
-                                .value
-                                .toString()),
+                            child: Text(
+                              snapshot.child('organSpecified').value.toString(),
+                            ),
                           ),
                           subtitle: Center(
-                              child: Text(
-                                  snapshot.child('name').value.toString())),
+                            child: Text(
+                              snapshot.child('name').value.toString(),
+                            ),
+                          ),
                           trailing: Text(
                             snapshot.child('bloodGroup').value.toString(),
                             style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 17,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -406,7 +397,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                     child: Container(
                                       height: 300,
                                       width: 250,
-                                      //color: Colors.grey.shade300,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.transparent,
@@ -489,18 +479,15 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              "${snapshot.child("time").value.toString()}",
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -514,24 +501,25 @@ class _DonorListPageState extends State<DonorListPage> {
                               width: 52,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://cdn.3d4medical.com/media/blog/small_intestine_2.jpg"),
-                                    fit: BoxFit.cover),
+                                  image: NetworkImage(
+                                    "https://cdn.3d4medical.com/media/blog/small_intestine_2.jpg",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://cdn.3d4medical.com/media/blog/small_intestine_2.jpg"),
                           ),
                           title: Center(
-                            child: Text(snapshot
-                                .child('organSpecified')
-                                .value
-                                .toString()),
+                            child: Text(
+                              snapshot.child('organSpecified').value.toString(),
+                            ),
                           ),
                           subtitle: Center(
-                              child: Text(
-                                  snapshot.child('name').value.toString())),
+                            child: Text(
+                              snapshot.child('name').value.toString(),
+                            ),
+                          ),
                           trailing: Text(
                             snapshot.child('bloodGroup').value.toString(),
                             style: const TextStyle(
@@ -643,10 +631,7 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
                                                 "${snapshot.child("time").value.toString()}",
@@ -668,30 +653,32 @@ class _DonorListPageState extends State<DonorListPage> {
                               width: 52,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://www.pbmchealth.org/application/files/5216/0566/1901/Red-Bone-Marrow-Vs-Yellow-Bone-Marrow.jpg"),
-                                    fit: BoxFit.cover),
+                                  image: NetworkImage(
+                                    "https://www.pbmchealth.org/application/files/5216/0566/1901/Red-Bone-Marrow-Vs-Yellow-Bone-Marrow.jpg",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://www.pbmchealth.org/application/files/5216/0566/1901/Red-Bone-Marrow-Vs-Yellow-Bone-Marrow.jpg"),
                           ),
                           title: Center(
-                            child: Text(snapshot
-                                .child('organSpecified')
-                                .value
-                                .toString()),
+                            child: Text(
+                              snapshot.child('organSpecified').value.toString(),
+                            ),
                           ),
                           subtitle: Center(
-                              child: Text(
-                                  snapshot.child('name').value.toString())),
+                            child: Text(
+                              snapshot.child('name').value.toString(),
+                            ),
+                          ),
                           trailing: Text(
                             snapshot.child('bloodGroup').value.toString(),
                             style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 17,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -714,15 +701,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                     child: Container(
                                       height: 300,
                                       width: 250,
-                                      //color: Colors.grey.shade300,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.transparent,
                                         image: DecorationImage(
-                                            image: NetworkImage(
-                                                "https://cdn.pixabay.com/photo/2020/06/01/22/23/eye-5248678__340.jpg"),
-                                            fit: BoxFit.cover,
-                                            opacity: 50),
+                                          image: NetworkImage(
+                                            "https://cdn.pixabay.com/photo/2020/06/01/22/23/eye-5248678__340.jpg",
+                                          ),
+                                          fit: BoxFit.cover,
+                                          opacity: 50,
+                                        ),
                                       ),
                                       child: Column(
                                         mainAxisAlignment:
@@ -797,10 +785,7 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
                                                 "${snapshot.child("time").value.toString()}",
@@ -828,8 +813,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://images.indianexpress.com/2020/10/pixabay_eye-donation_1200.jpg"),
                           ),
                           title: Center(
                             child: Text(snapshot
@@ -868,15 +851,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                     child: Container(
                                       height: 300,
                                       width: 250,
-                                      //color: Colors.grey.shade300,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.transparent,
                                         image: DecorationImage(
-                                            image: NetworkImage(
-                                                "https://c1.wallpaperflare.com/preview/881/472/914/skin-brown-skin-skin-up-close-brown-skin-up-close.jpg"),
-                                            fit: BoxFit.cover,
-                                            opacity: 50),
+                                          image: NetworkImage(
+                                            "https://c1.wallpaperflare.com/preview/881/472/914/skin-brown-skin-skin-up-close-brown-skin-up-close.jpg",
+                                          ),
+                                          fit: BoxFit.cover,
+                                          opacity: 50,
+                                        ),
                                       ),
                                       child: Column(
                                         mainAxisAlignment:
@@ -885,14 +869,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                             CrossAxisAlignment.center,
                                         children: [
                                           Text(
-                                              snapshot
-                                                  .child("name")
-                                                  .value
-                                                  .toString(),
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 26,
-                                                  fontWeight: FontWeight.bold)),
+                                            snapshot
+                                                .child("name")
+                                                .value
+                                                .toString(),
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 26,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                           SizedBox(
                                             height: 10,
                                           ),
@@ -951,18 +937,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              "${snapshot.child("time").value.toString()}",
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -976,14 +960,13 @@ class _DonorListPageState extends State<DonorListPage> {
                               width: 52,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://cdn.mos.cms.futurecdn.net/UpQNNuE9QjptyPma55sbdN.jpg"),
-                                    fit: BoxFit.cover),
+                                  image: NetworkImage(
+                                      "https://cdn.mos.cms.futurecdn.net/UpQNNuE9QjptyPma55sbdN.jpg"),
+                                  fit: BoxFit.cover,
+                                ),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://cdn.mos.cms.futurecdn.net/UpQNNuE9QjptyPma55sbdN.jpg"),
                           ),
                           title: Center(
                             child: Text(snapshot
@@ -1105,18 +1088,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              "${snapshot.child("time").value.toString()}",
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -1130,9 +1111,11 @@ class _DonorListPageState extends State<DonorListPage> {
                               width: 52,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://cdn.mos.cms.futurecdn.net/6nZWaqsX5KvF8AB2QTj7NS-1200-80.jpg"),
-                                    fit: BoxFit.cover),
+                                  image: NetworkImage(
+                                    "https://cdn.mos.cms.futurecdn.net/6nZWaqsX5KvF8AB2QTj7NS-1200-80.jpg",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
@@ -1259,18 +1242,16 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
-                                                "${snapshot.child("time").value.toString()}",
-                                                style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
+                                              "${snapshot.child("time").value.toString()}",
+                                              style: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -1284,9 +1265,11 @@ class _DonorListPageState extends State<DonorListPage> {
                               width: 52,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://media.sciencephoto.com/c0/49/91/46/c0499146-800px-wm.jpg"),
-                                    fit: BoxFit.cover),
+                                  image: NetworkImage(
+                                    "https://media.sciencephoto.com/c0/49/91/46/c0499146-800px-wm.jpg",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
@@ -1412,10 +1395,7 @@ class _DonorListPageState extends State<DonorListPage> {
                                             ],
                                           ),
                                           SizedBox(height: 5),
-                                          if (snapshot
-                                                  .child("time")
-                                                  .value
-                                                  .toString() !=
+                                          if (snapshot.child("time").value !=
                                               null)
                                             Text(
                                                 "${snapshot.child("time").value.toString()}",
@@ -1443,8 +1423,6 @@ class _DonorListPageState extends State<DonorListPage> {
                                 borderRadius: BorderRadius.circular(52),
                               ),
                             ),
-                            // child: Image.network(
-                            //     "https://i.ytimg.com/vi/Wd_ylZSHlgA/maxresdefault.jpg"),
                           ),
                           title: Center(
                             child: Text(snapshot
@@ -1466,40 +1444,15 @@ class _DonorListPageState extends State<DonorListPage> {
                       ),
                     );
                   } else {
-                    return const SizedBox(
-                      height: 0,
-                    );
+                    return const SizedBox(height: 0);
                   }
                 }),
               ),
-              //),
             ),
-            //),
             const SizedBox(height: 40),
           ]),
         ),
       ),
-      // bottomNavigationBar: Padding(
-      //   padding: const EdgeInsets.all(2.0),
-      //   child: Container(
-      //     color: Colors.deepPurple.shade500,
-      //     // decoration: BoxDecoration(
-      //     //   borderRadius: BorderRadius.circular(20.0),
-      //     // ),
-      //     child: IconButton(
-      //         color: Colors.white,
-      //         onPressed: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: ((context) => CertificatePage())));
-      //         },
-      //         icon: Icon(
-      //           Icons.file_download_outlined,
-      //           size: 35,
-      //         )),
-      //   ),
-      // ),
     );
   }
 }

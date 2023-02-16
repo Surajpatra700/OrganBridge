@@ -30,33 +30,36 @@ class QuotesScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage("https://unsplash.it/900/1600"),
-                  fit: BoxFit.cover),
+                image: NetworkImage("https://unsplash.it/900/1600"),
+                fit: BoxFit.cover,
+              ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
+              filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
               child: Stack(children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.black.withOpacity(0.25),
                   ),
                 ),
               ]),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => HomePage())));
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  size: 25,
-                  color: Colors.indigo.shade700,
-                )),
-          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => HomePage()),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              size: 24,
+              color: Colors.indigo.shade700,
+            ),
+          ).pOnly(top: 30),
           QuoteText(quotesList: quotesList).px64(),
         ],
       ),
@@ -89,9 +92,8 @@ class _QuoteTextState extends State<QuoteText> {
   Widget build(BuildContext context) {
     return Center(
       child: widget.quotesList[Random().nextInt(widget.quotesList.length)].text
-          .white.bold.wide.italic.center
-          .make()
-          .opacity(value: 0.8),
+          .white.bold.italic.center.lg
+          .make(),
     );
   }
 }

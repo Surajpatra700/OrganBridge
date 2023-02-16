@@ -4,9 +4,7 @@ import 'package:organ_bridge_project/homepage/home_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CertificatePage extends StatelessWidget {
-  //final database = FirebaseDatabase.instance.ref("certificate");
-  CertificatePage({super.key});
-  
+  const CertificatePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +15,15 @@ class CertificatePage extends StatelessWidget {
         title: "Thank You".text.light.italic.black.make(),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => HomePage())));
-              },
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              )),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => HomePage())));
+            },
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+          ),
         ],
         centerTitle: true,
       ),

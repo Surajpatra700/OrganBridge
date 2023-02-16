@@ -153,10 +153,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Utils().toastMessage(error.toString());
                             });
                           }
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()));
                         }),
                   ),
                   const SizedBox(

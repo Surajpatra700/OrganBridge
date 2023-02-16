@@ -1,14 +1,6 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, unused_import, unnecessary_new, avoid_print, non_constant_identifier_names, unnecessary_import, use_key_in_widget_constructors, duplicate_ignore
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/actions/raised_button.dart';
 import 'package:organ_bridge_project/homepage/home_page.dart';
-//import 'package:organ_bridge/actions/raised_button.dart';
-//import 'package:organ_bridge/homepage/home_page.dart';
-//import 'package:flutter_firebase_program/model/raised_button.dart';
-//import 'package:flutter_firebase_program/model/raised_button.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:toast/toast.dart';
 
@@ -130,13 +122,12 @@ class _DonationScreenState extends State<DonationScreen> {
                 ),
               ),
               SizedBox(height: 25),
-               RaisedButton(
-                //color: Colors.deepPurple,
-                  child: Text(
+              RaisedButton(
+                child: Text(
                   "Donate Now",
-                   style: TextStyle(
-                     color: Colors.white,
-                     fontSize: 16,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
                   ),
                 ),
                 onPressed: () {
@@ -151,8 +142,3 @@ class _DonationScreenState extends State<DonationScreen> {
     );
   }
 } 
-  // RaisedButton(
-  //   {required MaterialColor color, 
-  //   required Text child,
-  //    required Null Function() onPressed}){}
- // ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, unused_import, unnecessary_new, avoid_print, non_constant_identifier_names
