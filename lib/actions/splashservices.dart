@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:organ_bridge_project/forms/donor_formpage.dart';
+import 'package:organ_bridge_project/forms/requestor_formpage.dart';
 import 'package:organ_bridge_project/homepage/home_page.dart';
 import 'package:organ_bridge_project/screens/signup_screen.dart';
 //import 'package:organ_bridge/pages/homepage.dart';
@@ -15,12 +17,12 @@ class SplashServices {
       Timer(
         const Duration(seconds: 5),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignUpScreen())));
+            context, MaterialPageRoute(builder: (context) => RequestorFormPage())));
     }else{
       Timer(
         const Duration(seconds: 5),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage())));
-    }
+            context, MaterialPageRoute(builder: (context) => RequestorFormPage())));
   }
+}
 }
