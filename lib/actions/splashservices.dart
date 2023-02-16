@@ -17,12 +17,12 @@ class SplashServices {
       Timer(
         const Duration(seconds: 5),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RequestorFormPage())));
+            context, MaterialPageRoute(builder: (context) => SignUpScreen())));
     }else{
       Timer(
         const Duration(seconds: 5),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RequestorFormPage())));
+            context, MaterialPageRoute(builder: (context) => HomePage())));
   }
 }
 }

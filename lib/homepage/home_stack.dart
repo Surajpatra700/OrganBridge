@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/homepage/login_button.dart';
+import 'package:organ_bridge_project/screens/login_screen_donor.dart';
+import 'package:organ_bridge_project/screens/login_screen_reciever.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 //import 'login_button.dart';
@@ -67,10 +69,10 @@ class HomeStack extends StatelessWidget {
                 children: [
                   LoginButton(
                       onTap: () {
-                        // Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: ((context) => DonorLoginScreen())));
+                        Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => DonorLoginScreen())));
                       },
                       icon: CupertinoIcons.person,
                       textInside: "Login as Donor"),
@@ -79,10 +81,10 @@ class HomeStack extends StatelessWidget {
                   ),
                   LoginButton(
                       onTap: () {
-                        // Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: ((context) => RequestorLoginScreen())));
+                        Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => RequestorLoginScreen())));
                       },
                       icon: CupertinoIcons.person_solid,
                       textInside: "Login as Requestor"),

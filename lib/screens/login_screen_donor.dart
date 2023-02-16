@@ -146,31 +146,6 @@ class _DonorLoginScreenState extends State<DonorLoginScreen> {
                         title: "Login",
                         onTap: () {
                           login();
-                          // if (_formKey.currentState!.validate()) {
-                          //   setState(() {
-                          //     loading = true;
-                          //   });
-                          //   auth
-                          //       .signInWithEmailAndPassword(
-                          //     email: emailController.text.toString(),
-                          //     password: passwordController.text.toString(),
-                          //   )
-                          //       .then((value) {
-                          //         setState(() {
-                          //     loading = false;
-                          //   });
-                          //     Navigator.push(
-                          //         context,
-                          //         MaterialPageRoute(
-                          //             builder: (content) => PostScreen()));
-                          //     Utils().toastMessage("Succesfully Login");
-                          //   }).onError((error, stackTrace) {
-                          //     Utils().toastMessage(error.toString());
-                          //     setState(() {
-                          //     loading = false;
-                          //   });
-                          //   });
-                          // }
                         }),
                   ),
                   SizedBox(
