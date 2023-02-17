@@ -20,12 +20,12 @@ class SplashServices {
   void display(BuildContext context) {
     if(user == null){
       Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 6),
         () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => SignUpScreen())));
     }else{
       Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 6),
         () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage())));
   }

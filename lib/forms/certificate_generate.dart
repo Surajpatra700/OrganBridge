@@ -30,8 +30,15 @@ class _CertificateGenerateState extends State<CertificateGenerate> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/back.jpg"), fit: BoxFit.cover),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+            Color.fromARGB(255, 42, 25, 71),
+            Colors.indigo.shade200,
+          ])
+          // image: DecorationImage(
+          //     image: AssetImage("assets/images/back.jpg"), fit: BoxFit.cover),
         ),
         child: Center(
           child: Container(
