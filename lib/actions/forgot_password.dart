@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_bridge_project/actions/round_button.dart';
@@ -108,7 +106,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: RoundButton(
                           loading: loading,
-                          //color: Colors.deepPurple,
                           title: "Reset Password",
                           onTap: () {
                             setState(() {
@@ -142,17 +139,23 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                 TextStyle(color: Colors.black87, fontSize: 15),
                           ),
                           TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: ((context) => HomePage())));
-                              },
-                              child: Text("HomePage",
-                                  style: TextStyle(
-                                      color: Colors.deepPurple,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold))),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => HomePage()),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "HomePage",
+                              style: TextStyle(
+                                color: Colors.indigo.shade700,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
