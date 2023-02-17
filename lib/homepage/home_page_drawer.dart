@@ -58,17 +58,17 @@ class HomePageDrawer extends StatelessWidget {
             //subtitle: "Subdetails".text.make(),
           ),
           ListTile(
-            onTap: () async{
+            onTap: () async {
               await launchUrl(url);
             },
             leading: Icon(Icons.language),
-            title: Text("website",
+            title: Text("Website",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
           ),
           ListTile(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => About())));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: ((context) => About())));
             },
             leading: Icon(Icons.info),
             title: Text("About us",

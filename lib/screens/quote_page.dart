@@ -24,44 +24,46 @@ class QuotesScreen extends StatelessWidget {
       "The greatest wealth is health.",
     ];
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("https://unsplash.it/900/1600"),
-                fit: BoxFit.cover,
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage("https://unsplash.it/900/1600"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                child: Stack(children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.25),
+                    ),
+                  ),
+                ]),
               ),
             ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-              child: Stack(children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.25),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => HomePage()),
                   ),
-                ),
-              ]),
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: ((context) => HomePage()),
-                ),
-              );
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              size: 24,
-              color: Colors.indigo.shade700,
-            ),
-          ).pOnly(top: 30),
-          QuoteText(quotesList: quotesList).px64(),
-        ],
+                );
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                size: 24,
+                color: Colors.white,
+              ),
+            ).p8(),
+            QuoteText(quotesList: quotesList).px64(),
+          ],
+        ),
       ),
     );
   }
